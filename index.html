@@ -3,114 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grok-like AI Chat</title>
+    <title>Adult Video Site</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #FFD700, #FFA500); /* Yellow to orange gradient */
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
         }
-        .chat-container {
-            width: 90%;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
+        header {
+            background-color: #333;
+            text-align: center;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .chat-history {
-            height: 400px;
-            overflow-y: auto;
-            border: 1px solid #FFA500;
-            padding: 10px;
-            margin-bottom: 10px;
-            background: #FFFACD; /* Light yellow */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
-        .message {
-            margin-bottom: 10px;
-            padding: 10px;
+        .video-item {
+            background-color: #222;
             border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
         }
-        .user-message {
-            background: #FFD700;
-            text-align: right;
+        .video-item video {
+            width: 100%;
+            height: auto;
         }
-        .ai-message {
-            background: #FFA500;
-            text-align: left;
-        }
-        .input-container {
-            display: flex;
-        }
-        input[type="text"] {
-            flex: 1;
+        .video-title {
             padding: 10px;
-            border: 1px solid #FFA500;
-            border-radius: 5px 0 0 5px;
+            font-size: 18px;
         }
-        button {
-            padding: 10px 20px;
-            background: #FFD700;
-            border: 1px solid #FFA500;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-            color: #333;
-        }
-        button:hover {
-            background: #FFA500;
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <h1 style="text-align: center; color: #FFA500;">Grok-like AI Chat</h1>
-        <div class="chat-history" id="chatHistory">
-            <div class="message ai-message">Hello! I'm Grok, your AI assistant. How can I help you today?</div>
+    <header>
+        <h1>Adult Video Collection</h1>
+        <p>All videos for entertainment purposes only. Ensure you are of legal age.</p>
+    </header>
+
+    <div class="video-grid">
+        <!-- Placeholder for videos. Replace src with actual video URLs -->
+        <div class="video-item">
+            <video controls>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-title">Video 1 Title</div>
         </div>
-        <div class="input-container">
-            <input type="text" id="userInput" placeholder="Type your message here...">
-            <button onclick="sendMessage()">Send</button>
+        <div class="video-item">
+            <video controls>
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-title">Video 2 Title</div>
         </div>
+        <!-- Add more video items as needed -->
     </div>
 
-    <script>
-        function sendMessage() {
-            const input = document.getElementById('userInput');
-            const message = input.value.trim();
-            if (message === '') return;
-
-            // Add user message
-            const chatHistory = document.getElementById('chatHistory');
-            const userMessage = document.createElement('div');
-            userMessage.className = 'message user-message';
-            userMessage.textContent = message;
-            chatHistory.appendChild(userMessage);
-
-            // Simulate AI response (replace with actual AI integration)
-            setTimeout(() => {
-                const aiMessage = document.createElement('div');
-                aiMessage.className = 'message ai-message';
-                aiMessage.textContent = "That's an interesting question! As a simulated AI, I'm here to chat. What else can I help with?";
-                chatHistory.appendChild(aiMessage);
-                chatHistory.scrollTop = chatHistory.scrollHeight;
-            }, 1000);
-
-            input.value = '';
-            chatHistory.scrollTop = chatHistory.scrollHeight;
-        }
-
-        // Allow sending on Enter key
-        document.getElementById('userInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-    </script>
+    <footer>
+        <p>&copy; 2023 Adult Site. All rights reserved.</p>
+    </footer>
 </body>
 </html>
